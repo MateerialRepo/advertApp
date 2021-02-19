@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ClickController;
 use App\Http\Controllers\AdvertController;
 
 /*
@@ -17,6 +18,9 @@ use App\Http\Controllers\AdvertController;
 */
 
 Route::get('/', [AdvertController::class, 'showSingleAdvert']);
+Route::get('/clicks/{id}',[ClickController::class, 'updateClicks']);
+// Route::post('/clicks',[ClickController::class, 'updateClicks']);
+
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');

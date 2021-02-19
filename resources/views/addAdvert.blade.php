@@ -7,16 +7,12 @@
             <div class="card">
                 <div class="card-header text-center">{{ 'Add Advert Campaign' }}</div>
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
 
                     <form method="post" action="" enctype="multipart/form-data">
                         @csrf
                         
                         <input type="hidden" name="views" value="0">
+                        <input type="hidden" name="clicks" value="0">
                         <div class="form-group">
                             <input type="text" class="form-control mb-3" name="advertname" placeholder="Enter the Advert/Campaign Name" 
                             value="{{old('advertname')}}">
