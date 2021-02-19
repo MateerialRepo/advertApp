@@ -19,7 +19,7 @@ use App\Http\Controllers\AdvertController;
 
 Route::get('/', [AdvertController::class, 'showSingleAdvert']);
 Route::get('/clicks/{id}',[ClickController::class, 'updateClicks']);
-// Route::post('/clicks',[ClickController::class, 'updateClicks']);
+
 
 
 Auth::routes();
