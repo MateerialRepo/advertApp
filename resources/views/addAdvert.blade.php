@@ -23,10 +23,10 @@
                             value="{{old('advertname')}}">
                             @error('advertname')<small class="alert alert-danger">{{$message}}</small> @enderror
                         </div>
-            
+
                         <div class="custom-file mb-3">
-                            <label class="custom-file-label mb-3" for="customFile" id="upload">Choose Advert Banner</label>
-                            <input type="file" class="custom-file-input" name="banner" id="upload">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="banner" aria-describedby="inputGroupFileAddon01">
+                            <label class="custom-file-label" for="inputGroupFile01">Choose Advert Banner</label>
                             @error('banner')<small class="alert alert-danger">{{$message}}</small> @enderror
                           </div>
                     
