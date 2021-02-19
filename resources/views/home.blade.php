@@ -13,6 +13,12 @@
                         </div>
                     @endif
 
+                    @if (Session::has('update'))
+                        <div class="alert alert-success" role="alert">
+                            {{ Session::get('update') }}
+                        </div>
+                    @endif
+
                     <table class="table table-responsive table-striped mt-4">
                         <thead>
                             <tr>

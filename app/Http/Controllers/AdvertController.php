@@ -66,12 +66,34 @@ class AdvertController extends Controller
 
 
     function editAdvert($id){
-
+        $advert = Advert::find($id);
+        return view('editAdvert',['advert'=>$advert]);
     }
+
 
     function updateAdvert(Request $req){
+        $req->validate([
+            'advertname' => 'required|max:200|string', 
+            'banner' => 'required|image',
+            'displaynum' => 'required|max:30|numeric',
+            ]);
 
+        $banner_new_name = time().'.'.$req->banner->extension();
+
+        $req->banner->move(public_path('adverts'), $banner_new_name);
+        
+        // Advert::where('id', $id)->update($req->all());
+        $advert = Advert::find($req->id);
+        $advert->advertName = $req->input('advertname');
+        $advert->bannerName = $banner_new_name;
+        $advert->displayNum = $req->input('displaynum');
+        $advert->save();
+
+        Session::flash('update', 'Your Advert has been updated successfully');
+
+        return redirect()->route('home');
     }
+
 
     function delete($id){
         $advert = Advert::find($id);

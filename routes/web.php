@@ -23,6 +23,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 Route::get('/upload', [AdvertController::class, 'create'])->name('upload');
 Route::post('/upload', [AdvertController::class, 'store']);
-// Route::get('/edit_advert/{id}',[AdvertController::class, 'editAdvert'])->name('editadvert');
-// Route::post('/edit_advert',[AdvertController::class, 'updateTeacher']);
+Route::get('/edit_advert/{id}',[AdvertController::class, 'editAdvert'])->name('editadvert');
+Route::post('/edit_advert',[AdvertController::class, 'updateAdvert']);
 Route::get('/delete_advert/{id}',[AdvertController::class, 'delete']);
