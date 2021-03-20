@@ -29,17 +29,15 @@
     $("img").click(function(){
         
         let id = $('#imageId').val()
-        let url = {{ url('clicks')}}+"/"+id
-        alert(url);
+        //alert(id);
+        let url = "{{ url('clicks')}}/"+id
+        //alert(url);
 
         $.ajax({
             type: "GET",
             url: url,
             data: {
                 id: id,
-            }
-            success: function(result){
-                alert('Thank you for visiting');
             }
         })
     })
