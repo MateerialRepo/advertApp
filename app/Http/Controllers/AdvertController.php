@@ -45,7 +45,7 @@ class AdvertController extends Controller
         $req->validate([
             'advertname' => 'required|max:200|string', 
             'banner' => 'required|image',
-            'displaynum' => 'required|max:30|numeric',
+            'displaynum' => 'required|numeric',
             ]);
 
         $banner_new_name = time().'.'.$req->banner->extension();
@@ -56,7 +56,8 @@ class AdvertController extends Controller
             'advertName' => $req->advertname,
             'bannerName' => $banner_new_name,
             'displayNum' => $req->displaynum,
-            'views' => $req->views
+            'views' => $req->views,
+            'clicks' => $req->clicks
             ]);
 
         Session::flash('success', 'Your Advert has been created');
@@ -75,7 +76,7 @@ class AdvertController extends Controller
         $req->validate([
             'advertname' => 'required|max:200|string', 
             'banner' => 'required|image',
-            'displaynum' => 'required|max:30|numeric',
+            'displaynum' => 'required|numeric',
             ]);
 
         $banner_new_name = time().'.'.$req->banner->extension();

@@ -5,18 +5,47 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ 'Welcome to Our Advert Application' }}</div>
+                <div class="card-header text-center"><h3>{{ 'Welcome to Our Advert Application' }}</h3></div>
                 <div class="card-body text-center">
                     @if (Session::has('status'))
                         <div class="alert alert-warning" role="alert">
-                            <h3>{{ Session::get('status') }}</h3>
+                            <h4>{{ Session::get('status') }}</h4>
                         </div>
                     @else
-                        <img src="{{asset('adverts/'.$randImage->bannerName)}}" alt="" width="500px" height="250px">
+                    <form>
+                        <input type="hidden" id="imageId" value="{{$randImage->id}}">
+                    </form>
+                        
+                        <img src="{{asset('adverts/'.$randImage->bannerName)}}" width="500px" height="250px">
                     @endif
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+    $("img").click(function(){
+        
+        let id = $('#imageId').val()
+        let url = {{ url('clicks')}}+"/"+id
+        alert(url);
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                id: id,
+            }
+            success: function(result){
+                alert('Thank you for visiting');
+            }
+        })
+    })
+
+        
+    
+
+</script>
 @endsection
